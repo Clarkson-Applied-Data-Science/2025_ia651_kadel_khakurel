@@ -236,6 +236,27 @@ Accuracy: 96%
 
 •	Reliable for both pricing segments
 
+
+## Model Comparison
+
+Three classification models were evaluated to predict whether an Airbnb listing is priced above or below $500 per night: Logistic Regression, Decision Tree, and Random Forest. Each model was assessed on accuracy, precision, recall, and F1-score, with particular focus on performance for the minority class (listings > $500).
+
+| Model                        | Accuracy    | Precision (>500)  | Recall (>500) | F1-Score (>500) |  Key Observations                                             |
+|------------------------------|-------------|-------------------|---------------|-----------------|---------------------------------------------------------------|
+| Logistic Regression          | 80%         | 0. 61             | 0.35          | 0.44            | Simple and interpretable, but weak on minority class          |
+| Decision Tree (After Tuning) | 93%         | 0.86              | 0.84          | 0.85            | Balanced performance, interpretable, better on minority class |
+| Random Forest (After Tuning) | 96%         | 0.94              | 0.88          | 0.91            | Best performance, high precision and recall on both classes   |
+
+
+## Summary
+
+•	Logistic Regression served as a baseline but struggled with expensive listings.
+
+•	Decision Tree improved balance between classes and offered interpretability.
+
+•	Random Forest outperformed both models, making it the most robust and reliable choice for this classification task, especially in correctly identifying high-priced listings.
+
+
 ## Sample Predictions
 
 To illustrate how the model performs, we reviewed four prediction examples, two real listings from the dataset and two synthesized cases created to reflect realistic scenarios.
@@ -248,7 +269,7 @@ To illustrate how the model performs, we reviewed four prediction examples, two 
     o	A Private room in the Bronx with limited availability and reviews, priced at $120, classified as ≤ $500.
 
 
-## Deployment Advice & Precautions
+## Deployment & Precautions
 
 •	The model can be integrated into pricing tools for Airbnb hosts to classify listings as above or below $500 per night.
 
@@ -256,7 +277,7 @@ To illustrate how the model performs, we reviewed four prediction examples, two 
 
 •	The model is NYC-specific and may not generalize to other locations without adjustment.
 
-## Going Further
+## Future Work
 
 •	More Data: Add recent listings and expand to other cities.
 
